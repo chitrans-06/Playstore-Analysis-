@@ -1,8 +1,8 @@
-Objective
+Objective :-
 The objective of this project is to gain insights into the applications hosted on Google Playstore and the sentiment of their user reviews and present these ingsights in the form of visualisation which can be used to improve the overall experience and optimise the application development processes
  Tools Used
- Microsoft Excel
- MySQL Workbench
+* Microsoft Excel
+* MySQL Workbench
 Project Files Description
 This Project includes 1 SQL text file.
 Data Source : Kaggle
