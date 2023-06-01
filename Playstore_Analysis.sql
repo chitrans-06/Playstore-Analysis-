@@ -49,17 +49,17 @@ select* from googleplaystore;
    from googleplaystore
    order by installs desc;
    
-   #-6 Which Genre has the most number of published apps?
+#-6 Which Genre has the most number of published apps?
    select count(genres),app
    from googleplaystore
    group by  Genres;
    
-   #-7 Find the count of apps in each content rating based on App type
+#-7 Find the count of apps in each content rating based on App type
    select count(app),Content_Rating,app,type
    from googleplaystore
    group by Type;
    
-   #-8 Create a new column to bucket rating to high(4-5), medium(2-4), low(0-2). Return the app names
+#-8 Create a new column to bucket rating to high(4-5), medium(2-4), low(0-2). Return the app names
     select app,rating,
     CASE
 	when rating between 4 and 5 then 'High'
@@ -68,35 +68,35 @@ select* from googleplaystore;
 	end 
 	from googleplaystore;
       
-	#-9 Provide the list of all games ordered in such a way that the game that has the highest number of installs is displayed on the top 
+#-9 Provide the list of all games ordered in such a way that the game that has the highest number of installs is displayed on the top 
 	select distinct app,installs,category
 	from googleplaystore
 	order by Installs desc;
       
-	#-10 List all non-entertainment and non-education apps that are rated by everyone or teen
+#-10 List all non-entertainment and non-education apps that are rated by everyone or teen
 	select*
 	from googleplaystore
 	where category not in ('Entertainment','non-education')
 	and Content_Rating in ('Everyone','teen');
    
-   #-11 List all the apps whose app names contain the letter “i” or start with the letter “D”
+#-11 List all the apps whose app names contain the letter “i” or start with the letter “D”
 	select *
     from googleplaystore
     where app like'%i%' or app like '%D%';
    
-   #-12  Return the app names, categories, sizes, release dates (rename it to “Last Updated”) of apps whose app names have more than 1 word, and whose categories are music and social, and whose sizes are bigger than 10. Order the output result by maximum installs in descending order, then release dates in ascending order.
+#-12  Return the app names, categories, sizes, release dates (rename it to “Last Updated”) of apps whose app names have more than 1 word, and whose categories are music and social, and whose sizes are bigger than 10. Order the output result by maximum installs in descending order, then release dates in ascending order.
 	select app,category, size, LastUpdate as last_updated
 	from googleplaystore
 	where Category = 'ART_AND_DESIGN'
 	and app like '_%'
 	and size > 10;
    
-   #-13  Find the number of apps in each category that have a rating greater than the average rating
+#-13  Find the number of apps in each category that have a rating greater than the average rating
 	select count(app),category,rating
 	from googleplaystore
 	group by category having rating > avg(rating);
    
-   #-14 List the largest app size within each app category.
+#-14 List the largest app size within each app category.
 	select max(app),size,category
 	from googleplaystore
 	group by app
